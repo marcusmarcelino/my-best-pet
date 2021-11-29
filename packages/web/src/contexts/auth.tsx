@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Roles } from '../Roles/roles'
 
 type AuthProviderProps = {
@@ -28,6 +29,8 @@ const AuthProvider = (props: AuthProviderProps): JSX.Element => {
   const [loading, setLoading] = useState(false)
   const [user, setUser] = useState<User | null>(null)
 
+  const navigate = useNavigate()
+
   const signIn = () => {
     setUser({
       id: '1',
@@ -38,6 +41,8 @@ const AuthProvider = (props: AuthProviderProps): JSX.Element => {
     })
     setLoading(true)
     setAuthenticated(true)
+    setLoading(true)
+    navigate('/admin-dashboard')
     setLoading(false)
   }
 

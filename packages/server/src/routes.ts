@@ -2,7 +2,11 @@ import express from 'express'
 
 const routes = express.Router()
 
-routes.get('/', (request, response) => {
+routes.post('/authenticate', (request, response) => {
+  const { email, password } = request.body
+
+  console.log('request ', { email, password })
+
   return response.json({ ok: 'Server started!' })
 })
 
